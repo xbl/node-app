@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Deploy') {
             steps {
-                sh 'ansible-playbook -i ./inventory/hosts deploy-app.yml'
+                sh 'ansible-playbook -i /home/workspace/inventory/hosts deploy-app.yml'
             }
         }
     }
