@@ -12,11 +12,6 @@ pipeline {
     }
 
     stages {
-        stage('Git Clone') {
-            steps {
-                git url: 'https://github.com/xbl/node-app.git', branch: 'master'
-            }
-        }
         stage('Checkout Tag') {
             steps {
                 echo "Git is ${params.Tag}"
