@@ -2,13 +2,14 @@ pipeline {
     agent any
 
     parameters {
-        string(name: 'Tag', defaultValue: '1.0', description: 'Please input git tag!')
+        string(name: 'Tag', defaultValue: 'v1.0', description: 'Please input git tag!')
     }
 
     stages {
         stage('echo') {
             steps {
                 echo "Git is ${params.Tag}"
+                sh "git checkout tags/${params.Tag} -b latest"
             }
         }
 
