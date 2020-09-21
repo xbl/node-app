@@ -6,7 +6,7 @@ pipeline {
     }
 
     stages {
-        stage('echo') {
+        stage('Checkout Tag') {
             steps {
                 echo "Git is ${params.Tag}"
                 sh "git checkout tags/${params.Tag} -b latest"
