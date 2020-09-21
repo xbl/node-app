@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    options {
+        timestamps()
+    }
+
     parameters {
         string(name: 'Tag', defaultValue: 'v1.0', description: 'Please input git tag!')
     }
