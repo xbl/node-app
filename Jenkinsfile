@@ -1,12 +1,6 @@
 pipeline {
     agent any
 
-    options {
-        disableConcurrentBuilds()
-        buildDiscarder(logRotator(numToKeepStr:'5'))
-        timestamps()
-    }
-
     parameters {
         string(name: 'Tag', defaultValue: 'v1.0', description: 'Please input git tag!')
     }
@@ -22,6 +16,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'ansible-playbook -i /home/workspace/inventory/hosts deploy-app.yml'
+                deleteDir()
             }
         }
     }
